@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  .hero
+    h1= title
+    p Discover our collection of premium t-shirts
+  
+  .products-grid
+    each product in products
+      .product-card
+        .product-image
+          img(src=product.image, alt=product.name, onerror="this.src='/images/placeholder.jpg'")
+        .product-info
+          h3.product-name= product.name
+          p.product-price $#{product.price}
+          p.product-description= product.description
+          .product-actions
+            a.btn.btn-primary(href=`/product/${product.id}`) View Details
+            button.btn.btn-secondary.add-to-cart(data-product-id=product.id) Add to Cart

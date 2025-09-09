@@ -1,0 +1,71 @@
+extends layout
+
+block content
+  .checkout-page
+    h1= title
+    
+    .checkout-container
+      .order-summary
+        h2 Order Summary
+        .order-items
+          each item in cartItems
+            .checkout-item
+              .item-info
+                span.item-name= item.product.name
+                span.item-details (#{item.size}) × #{item.quantity}
+              .item-price $#{item.subtotal.toFixed(2)}
+        .order-total
+          strong Total: $#{totalPrice}
+      
+      .checkout-form
+        h2 Shipping & Payment Information
+        form(action="/checkout/process", method="POST")
+          .form-section
+            h3 Contact Information
+            .form-group
+              label(for="email") Email Address *
+              input#email(type="email", name="email", required)
+            .form-group
+              label(for="phone") Phone Number
+              input#phone(type="tel", name="phone")
+          
+          .form-section
+            h3 Shipping Address
+            .form-group
+              label(for="firstName") First Name *
+              input#firstName(type="text", name="firstName", required)
+            .form-group
+              label(for="lastName") Last Name *
+              input#lastName(type="text", name="lastName", required)
+            .form-group
+              label(for="address") Street Address *
+              input#address(type="text", name="address", required)
+            .form-group
+              label(for="city") City *
+              input#city(type="text", name="city", required)
+            .form-group
+              label(for="state") State *
+              input#state(type="text", name="state", required)
+            .form-group
+              label(for="zipCode") ZIP Code *
+              input#zipCode(type="text", name="zipCode", required)
+          
+          .form-section
+            h3 Payment Information
+            .form-group
+              label(for="cardNumber") Card Number *
+              input#cardNumber(type="text", name="cardNumber", placeholder="1234 5678 9012 3456", required)
+            .form-row
+              .form-group.half
+                label(for="expiryDate") Expiry Date *
+                input#expiryDate(type="text", name="expiryDate", placeholder="MM/YY", required)
+              .form-group.half
+                label(for="cvv") CVV *
+                input#cvv(type="text", name="cvv", placeholder="123", required)
+            .form-group
+              label(for="cardName") Name on Card *
+              input#cardName(type="text", name="cardName", required)
+          
+          .checkout-actions
+            a.btn.btn-secondary(href="/cart") Back to Cart
+            button.btn.btn-primary(type="submit") Complete Order

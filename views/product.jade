@@ -1,0 +1,97 @@
+extends layout
+
+block content
+  .product-detail(data-product-id=product.id)
+    .product-images
+      .main-image
+        img(src=product.image, alt=product.name, onerror="this.src='/images/placeholder.jpg'")
+    
+    .product-info-detail
+      h1.product-title= product.name
+      p.product-price $#{product.price}
+      p.product-sku SKU: #{product.sku}
+      p.product-color Color: #{product.color}
+      
+      .product-specifications
+        p.product-material Material: #{product.material}
+        p.product-weight Weight: #{product.weight}
+      
+      .stock-info
+        .total-stock
+          p.stock-level(class=stockInfo.lowStock ? 'low-stock' : 'in-stock')
+            strong Total Stock: 
+            span#total-stock= stockInfo.totalStock
+            if stockInfo.lowStock
+              span.stock-warning  (Low Stock!)
+        
+        .size-stock-info
+          h4 Stock by Size:
+          .size-stock-grid
+            each sizeStock in sizesWithStock
+              .size-stock-item(class=sizeStock.inStock ? 'available' : 'out-of-stock')
+                span.size-label= sizeStock.size
+                span.stock-count= sizeStock.available
+                if !sizeStock.inStock
+                  span.out-of-stock-label Out of Stock
+      
+      .product-description
+        h3 Description
+        p= product.description
+      
+      .product-options
+        .size-selection
+          label(for="size") Size:
+          select#size.form-select(name="size", required)
+            option(value="", disabled, selected) Select Size
+            each sizeStock in sizesWithStock
+              if sizeStock.inStock
+                option(value=sizeStock.size, data-stock=sizeStock.available) #{sizeStock.size} (#{sizeStock.available} available)
+              else
+                option(value=sizeStock.size, disabled, data-stock=sizeStock.available) #{sizeStock.size} (Out of Stock)
+        
+        .quantity-selection
+          label(for="quantity") Quantity:
+          input#quantity(type="number", name="quantity", value="1", min="1", max="1", disabled)
+          p.quantity-note#quantity-note Please select a size first
+      
+      .product-actions-detail
+        button.btn.btn-primary.add-to-cart-detail(data-product-id=product.id, disabled) Add to Cart
+        a.btn.btn-secondary(href="/") Continue Shopping
+        button.btn.btn-info.refresh-stock(data-product-id=product.id) 🔄 Refresh Stock
+  
+  .product-details-tabs
+    .tabs
+      button.tab-button.active(data-tab="description") Description
+      button.tab-button(data-tab="specifications") Specifications
+      button.tab-button(data-tab="stock") Stock Info
+    
+    .tab-content
+      .tab-panel#description.active
+        p= product.description
+        p This #{product.category} t-shirt is perfect for any occasion.
+      
+      .tab-panel#specifications
+        ul
+          li Material: #{product.material}
+          li Weight: #{product.weight}
+          li Color: #{product.color}
+          li Category: #{product.category}
+          li SKU: #{product.sku}
+      
+      .tab-panel#stock
+        .stock-details
+          p Current total stock: #{stockInfo.totalStock} units
+          if stockInfo.lowStock
+            p.warning This item is running low on stock!
+          .size-breakdown
+            h4 Stock by Size:
+            each sizeStock in sizesWithStock
+              .size-row
+                span #{sizeStock.size}: 
+                strong #{sizeStock.available} units
+                if !sizeStock.inStock
+                  span.out-of-stock  (Out of Stock)
+  
+  .related-products
+    h2 You might also like
+    p Check out our other t-shirts in the #{product.category} category

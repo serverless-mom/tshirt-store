@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  .cart-page
+    h1= title
+    
+    if cartItems.length === 0
+      .empty-cart
+        p Your cart is empty
+        a.btn.btn-primary(href="/") Start Shopping
+    else
+      .cart-items
+        each item in cartItems
+          .cart-item
+            .item-image
+              img(src=item.product.image, alt=item.product.name, onerror="this.src='/images/placeholder.jpg'")
+            .item-details
+              h3= item.product.name
+              p Color: #{item.product.color}
+              p Size: #{item.size}
+              p Price: $#{item.product.price}
+            .item-quantity
+              form.quantity-form(action="/cart/update", method="POST")
+                input(type="hidden", name="productId", value=item.product.id)
+                input(type="hidden", name="size", value=item.size)
+                label Qty:
+                input.quantity-input(type="number", name="quantity", value=item.quantity, min="1", max="10", onchange="this.form.submit()")
+            .item-subtotal
+              p $#{item.subtotal.toFixed(2)}
+            .item-actions
+              form.remove-form(action="/cart/remove", method="POST", style="display: inline")
+                input(type="hidden", name="productId", value=item.product.id)
+                input(type="hidden", name="size", value=item.size)
+                button.btn.btn-danger.btn-small(type="submit") Remove
+      
+      .cart-summary
+        .total-price
+          h2 Total: $#{totalPrice}
+        .cart-actions
+          a.btn.btn-secondary(href="/") Continue Shopping
+          a.btn.btn-primary(href="/checkout") Proceed to Checkout

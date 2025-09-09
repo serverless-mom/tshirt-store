@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  .order-success-page
+    .success-container
+      .success-icon
+        span ✓
+      h1 Order Confirmed!
+      p Thank you for your purchase. Your order has been successfully placed.
+      
+      .order-details
+        h2 Order Details
+        p
+          strong Order Number: 
+          span= orderNumber
+        p
+          strong Confirmation Email: 
+          span= customerEmail
+        p We'll send you a tracking number once your order ships.
+      
+      .success-actions
+        a.btn.btn-primary(href="/") Continue Shopping
+        a.btn.btn-secondary(href="/") Track Your Order

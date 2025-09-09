@@ -1,0 +1,13 @@
+ID,Name,SKU,Price,Color,Category,Material,Weight,Description,Sizes,Stock_S,Stock_M,Stock_L,Stock_XL,Stock_XXL,Total_Stock,Image_Path
+TSH-001,Classic Black Tee,TSH-001-BLACK,24.99,Black,basics,100% Cotton,180gsm,Essential black cotton t-shirt with a comfortable fit,S;M;L;XL,25,30,35,20,0,110,/images/black-tee.jpg
+TSH-002,Vintage White Crew,TSH-002-WHITE,22.99,White,basics,100% Cotton,160gsm,Soft vintage-style white t-shirt with a relaxed fit,S;M;L;XL;XXL,15,40,45,25,10,135,/images/white-crew.jpg
+TSH-003,Navy Blue V-Neck,TSH-003-NAVY,26.99,Navy Blue,basics,100% Cotton,200gsm,Premium navy blue v-neck t-shirt in 100% cotton,S;M;L;XL,20,25,30,15,0,90,/images/navy-vneck.jpg
+TSH-004,Sunset Graphic Tee,TSH-004-SUNSET,29.99,Orange,graphic,"60% Cotton, 40% Polyester",190gsm,Trendy graphic t-shirt featuring a beautiful sunset design,S;M;L;XL,18,32,28,22,0,100,/images/sunset-graphic.jpg
+TSH-005,Mountain Adventure Tee,TSH-005-MOUNTAIN,31.99,Forest Green,graphic,100% Cotton,210gsm,Outdoor-inspired t-shirt with mountain landscape print,S;M;L;XL;XXL,12,35,40,28,15,130,/images/mountain-tee.jpg
+TSH-006,Retro Striped Tee,TSH-006-STRIPED,27.99,Multi-Color,vintage,100% Cotton,170gsm,Classic striped t-shirt with retro color palette,S;M;L;XL,22,18,25,12,0,77,/images/striped-tee.jpg
+TSH-007,Ocean Wave Tee,TSH-007-OCEAN,28.99,Light Blue,graphic,"50% Cotton, 50% Modal",185gsm,Cool ocean wave design perfect for beach lovers,S;M;L;XL,30,42,38,20,0,130,/images/ocean-wave.jpg
+TSH-008,Heather Gray Pocket Tee,TSH-008-HGRAY,25.99,Heather Gray,basics,"60% Cotton, 40% Polyester",195gsm,Comfortable heather gray t-shirt with chest pocket,S;M;L;XL;XXL,28,45,50,35,12,170,/images/gray-pocket.jpg
+TSH-009,Urban Skyline Tee,TSH-009-URBAN,32.99,Charcoal,graphic,100% Cotton,220gsm,Modern city skyline silhouette on premium fabric,S;M;L;XL,15,25,30,18,0,88,/images/urban-skyline.jpg
+TSH-010,Tie-Dye Festival Tee,TSH-010-TIEDYE,34.99,Multi-Color,vintage,100% Cotton,180gsm,Vibrant tie-dye t-shirt perfect for festivals and fun,S;M;L;XL,8,20,22,15,0,65,/images/tie-dye.jpg
+TSH-011,Minimalist Logo Tee,TSH-011-MINIMAL,23.99,Stone Gray,basics,"70% Cotton, 30% Polyester",175gsm,Clean and simple logo design on soft cotton blend,S;M;L;XL;XXL,35,50,55,40,20,200,/images/minimalist-logo.jpg
+TSH-012,Space Galaxy Tee,TSH-012-GALAXY,33.99,Dark Purple,graphic,100% Cotton,200gsm,Cosmic galaxy print that's out of this world,S;M;L;XL,10,25,28,17,0,80,/images/space-galaxy.jpg
