@@ -49,10 +49,11 @@ This project is configured for deployment on Vercel with the following setup:
 ### Deployment Configuration
 
 The project includes:
-- **`vercel.json`**: Vercel configuration with proper routing
+- **`vercel.json`**: Minimal Vercel configuration (lets Vercel handle defaults)
+- **`index.js`**: Entry point for serverless deployment
 - **Build scripts**: Configured in `package.json`
 - **Environment variables**: Template in `.env.example`
-- **Serverless function**: App configured for Vercel's Node.js runtime
+- **Serverless function**: Express app automatically detected by Vercel
 - **Updated dependencies**: Modern, Vercel-compatible package versions
 - **Pug templates**: Updated from legacy Jade to modern Pug template engine
 
