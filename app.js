@@ -15,17 +15,20 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({
-  secret: 'tshirt-store-secret',
+  secret: process.env.SESSION_SECRET || 'tshirt-store-secret-change-in-production',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false }
+  cookie: { 
+    secure: process.env.NODE_ENV === 'production' && process.env.VERCEL_URL ? true : false,
+    maxAge: 24 * 60 * 60 * 1000 // 24 hours
+  }
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -52,3 +55,6 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+// Export for Vercel serverless functions
+module.exports.default = app;

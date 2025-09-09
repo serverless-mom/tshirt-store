@@ -26,6 +26,50 @@ A complete ecommerce platform for selling t-shirts with inventory management, sh
 
 The server runs on port 3000 by default. You can change this by setting the `PORT` environment variable.
 
+## 🚀 Deployment on Vercel
+
+This project is configured for deployment on Vercel with the following setup:
+
+### Quick Deploy
+
+1. **Fork or clone this repository**
+2. **Connect to Vercel:**
+   ```bash
+   # Install Vercel CLI
+   npm i -g vercel
+   
+   # Deploy to Vercel
+   vercel
+   ```
+
+3. **Set Environment Variables in Vercel Dashboard:**
+   - `SESSION_SECRET`: A secure random string for session management
+   - `NODE_ENV`: Set to `production`
+
+### Deployment Configuration
+
+The project includes:
+- **`vercel.json`**: Vercel configuration with proper routing
+- **Build scripts**: Configured in `package.json`
+- **Environment variables**: Template in `.env.example`
+- **Serverless function**: App configured for Vercel's Node.js runtime
+- **Updated dependencies**: Modern, Vercel-compatible package versions
+- **Pug templates**: Updated from legacy Jade to modern Pug template engine
+
+### Build Process
+
+- **Build Command**: `npm run build` (or automatic)
+- **Start Command**: `npm start`
+- **Node.js Version**: Compatible with Vercel's Node.js runtime
+- **Dependencies**: All production dependencies included
+
+### Environment Variables Required
+
+```bash
+SESSION_SECRET=your-secure-session-secret-here
+NODE_ENV=production
+```
+
 ## 🛍️ Store Features
 
 - **Product Catalog**: 12 unique t-shirt designs

@@ -156,8 +156,10 @@ tags
 
 
 # vercel
-
 .vercel
 
 # claude
 CLAUDE.md
+
+# Playwright
+/test-results/
